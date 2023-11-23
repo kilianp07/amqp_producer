@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672"  # Port pour l'accès AMQP
+      - "15672:15672"  # Port pour l'interface de gestion Web
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"  # Port pour l'interface utilisateur Web
+      - "1025:1025"  # Port pour le serveur SMTP
+
+volumes:
+  rabbitmq_data:
