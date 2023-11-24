@@ -22,7 +22,7 @@ func init() {
 		panic("RABBITMQ_HOST environment variable is not set")
 	}
 	var err error
-	db, err = sql.Open("sqlite3", "./data/database.db")
+	db, err = sql.Open("sqlite3", "/tmp/database.db")
 	if err != nil {
 		fmt.Println("Error opening database:", err)
 		panic(err)
